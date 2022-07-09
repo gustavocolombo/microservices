@@ -12,7 +12,7 @@ export class UserController {
 
   @Post('/create')
   async createUser(@Body() { name, email, password }: Prisma.UsersCreateInput) {
-    this.client.emit('hello', { name, email, password });
+    this.client.emit('create-user', { name, email, password });
     return await this.createUserService.execute({ name, email, password });
   }
 }
