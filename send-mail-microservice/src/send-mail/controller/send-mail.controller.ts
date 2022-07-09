@@ -7,13 +7,13 @@ import { SendMailProducerService } from '../services/send-mail-producer-service'
 export class SendMailController {
   constructor(private sendMailService: SendMailProducerService) {}
 
-  @Post()
-  async sendMail(@Body() createUser: ICreateUserDTO) {
-    return await this.sendMailService.execute(createUser);
-  }
+  // async sendMail(@Body() createUser: ICreateUserDTO) {
+  //   return await this.sendMailService.execute(createUser);
+  // }
 
-  @EventPattern('hello')
-  async hello(data: string) {
+  @Post()
+  @EventPattern('create-user')
+  async sendEmail(data: string) {
     console.log('data', data);
   }
 }
